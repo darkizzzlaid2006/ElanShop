@@ -1,0 +1,239 @@
+/* Reset cơ bản để dễ dàng quản lý layout */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #111;
+    background-color: #ffffff;
+    line-height: 1.5;
+}
+
+/* Container dùng chung để giới hạn chiều rộng và căn giữa */
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 120px;
+}
+
+/* ================= HEADER ================= */
+.header {
+    border-bottom: 1px solid #e5e5e5;
+    padding: 20px 0;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+.logo {
+    display: flex; /* ép các object nằm trên cùng hàng ngang */
+    align-items: center; /* căn tâm các object trùng nhau */
+    gap: 8px; /* Khoảng cách giữa icon và chữ */
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.logo svg {
+    width: 56px;
+    height: 56px;
+}
+
+/* Thanh tìm kiếm */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #f3f3f3;
+    border-radius: 8px;
+    width: 633px;
+    max-width: 50%;
+    height: 56px;
+}
+
+.search-bar .magnifying-glass {
+    width: 30px;
+    height: 30px;
+    color: #888;
+    margin-left: 5px;
+}
+
+.search-bar input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 0 10px;
+    font-size: 24px;
+    outline: none;
+}
+
+.search-bar .chevron-down {
+    width: 20px;
+    height: 20px;
+    color: #888;
+    margin: 0 15px;
+    cursor: pointer;
+}
+
+/* Biểu tượng phân chia nhỏ bên cạnh chevron trong thanh tìm kiếm */
+.search-bar input + svg.chevron-down {
+    border-left: 1px solid #d1d1d1;
+    padding-left: 15px;
+    width: 35px;
+    height: 54px;
+}
+
+/* Điều hướng bên phải */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #111;
+    font-size: 32px;
+    font-weight: 400;
+}
+
+.nav-item svg {
+    width: 40px;
+    height: 40px;
+}
+
+/* Nút giỏ hàng có số đếm */
+.cart-btn {
+    position: relative;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -10px;
+    right: -15px;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ================= MAIN CONTENT ================= */
+.main-content {
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+/* Section Lời chào */
+.welcome-section {
+    margin-bottom: 40px;
+}
+
+.page-title {
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.page-subtitle {
+    color: #666;
+    font-size: 20px;
+}
+
+/* Section Danh mục */
+.category-section {
+    margin-bottom: 30px;
+}
+
+.category-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.category-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-category {
+    padding: 8px 20px;
+    background-color: #ffffff;
+    border: 1px solid #d1d1d1;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    color: #111;
+    transition: all 0.2s ease;
+}
+
+/* Trạng thái nút được chọn */
+.btn-category.active,
+.btn-category:hover {
+    border-color: #111;
+    background-color: #fafafa;
+}
+
+/* Section Lưới sản phẩm */
+.product-grid {
+    display: grid;
+    /* Chia 4 cột giống như trong hình */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+/* Thẻ Sản phẩm */
+.product-card {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Áo 1 */
+.product-image {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover; /* Lệnh thần thánh giúp ảnh tự cắt cho vừa khung mà không bị méo */
+    border-radius: 8px; /* Bo góc cực nhẹ để nhìn mềm mại hơn */
+    background-color: #F3F4F6; /* Màu nền dự phòng trong lúc chờ ảnh tải lên */
+    transition: transform 0.3s ease; /* Thêm chút hiệu ứng mượt mà khi di chuột */
+}
+
+/* Hiệu ứng phóng to nhẹ khi khách hàng di chuột vào sản phẩm */
+.product-card:hover .product-image {
+    transform: scale(1.03);
+}
+
+/* Thông tin sản phẩm */
+.product-info {
+    text-align: center;
+}
+
+.product-name {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.product-price {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ff0000; /* Màu đỏ nổi bật cho giá */
+}
